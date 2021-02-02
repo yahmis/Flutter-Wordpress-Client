@@ -29,8 +29,8 @@ class _PostsCardState extends State<PostsCard> {
             Positioned(
               bottom: 2.0,
               left: 5.0,
-              child: new ButtonTheme.bar(
-                child: hawalBtnBar(),
+              child: new ButtonBarTheme(
+                child: hawalBtnBar(), data: null,
               ),
             ),
           ],

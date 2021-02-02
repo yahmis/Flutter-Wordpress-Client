@@ -12,8 +12,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:hawalnir1/wordpress_client.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 
-import 'widgets/drawerMain.dart';
-
 WordpressClient client = new WordpressClient(_baseUrl, http.Client());
 final String _baseUrl = mainApiUrl;
 

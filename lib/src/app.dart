@@ -1,21 +1,21 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hawalnir1/src/pages/listView.dart';
-import 'package:hawalnir1/src/view_models/app_key.dart';
-import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
-import 'widgets/drawerMain.dart';
-import 'config.dart';
-import 'db/database_helper.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:hawalnir1/wordpress_client.dart';
 import 'package:flutter_offline/flutter_offline.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart' as provider;
 
+<<<<<<< HEAD
+=======
+import '../wordpress_client.dart';
+import 'config.dart';
+import 'pages/listView.dart';
+import 'view_models/app_key.dart';
+import 'widgets/drawerMain.dart';
+
+>>>>>>> 3c3dde5b52e0fea4ebd6ae4bc37e62c7ea33cb0a
 WordpressClient client = new WordpressClient(_baseUrl, http.Client());
 final String _baseUrl = mainApiUrl;
-
-var dbHelper = DatabaseHelper();
 
 class HawalnirHome extends StatefulWidget {
   @override
@@ -30,7 +30,7 @@ class HawalnirHomeState extends State<HawalnirHome>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: Provider.of<Keys>(context, listen: false).appScaffoldKey,
+        key: provider.Provider.of<Keys>(context, listen: false).appScaffoldKey,
         drawer: DrawerMain(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         resizeToAvoidBottomPadding: true,
@@ -47,7 +47,7 @@ class HawalnirHomeState extends State<HawalnirHome>
                 children: [
                   Container(
                     child: FutureBuilder<List<Post>>(
-                      future: client.listPosts(),
+                      future: client.listPosts(page: 3, perPage: 4),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) print(snapshot.error);
 
@@ -70,15 +70,15 @@ class HawalnirHomeState extends State<HawalnirHome>
                               textDirection: TextDirection.rtl)),
                     ),
                   ),
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      color: Colors.deepPurple.withOpacity(0.8),
-                      child: bottomNavAppBar(),
-                    ),
-                  ),
+//                  Positioned(
+//                    bottom: 0,
+//                    left: 0,
+//                    right: 0,
+//                    child: Container(
+//                      color: Colors.deepPurple.withOpacity(0.8),
+//                      child: bottomNavAppBar(),
+//                    ),
+//                  ),
                 ],
               );
             },
